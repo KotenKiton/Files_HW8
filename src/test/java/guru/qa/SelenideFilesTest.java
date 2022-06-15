@@ -35,9 +35,5 @@ public class SelenideFilesTest {
         Selenide.$("div.example").shouldHave(Condition.text("File Uploaded!"));
         Selenide.$("#uploaded-files").shouldHave(Condition.text("1.txt"));
 
-
-
     }
-
-
 }

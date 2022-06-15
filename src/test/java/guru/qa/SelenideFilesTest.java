@@ -28,7 +28,7 @@ public class SelenideFilesTest {
     @Test
     void uploadSelenideTest() {
         Selenide.open("https://the-internet.herokuapp.com/upload");
-        Selenide.$("input[type='file']") // SUPER BAD PRACTICE
+        Selenide.$("input[type='file']")
                 // SUPER BAD PRACTICE .uploadFile(new File("C:\\Users\\koten\\IdeaProjects\\Files_HW8\\src\\test\\resources\\Files\\1.txt"));
                 .uploadFromClasspath("Files\\1.txt");
         Selenide.$("#file-submit").click();

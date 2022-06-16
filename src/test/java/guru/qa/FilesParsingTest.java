@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.List;
+import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 import static com.codeborne.selenide.Selectors.byText;
@@ -70,9 +71,14 @@ public class FilesParsingTest {
 
     @Test
     void parseZipTest() throws Exception {
-        try (InputStream is = classLoader.getResourceAsStream("files/ThreeFiles.zip")) ;
-        ZipInputStream zis = new ZipInputStream(is)
+        try (InputStream is = classLoader.getResourceAsStream("files/ThreeFiles.zip");
+        ZipInputStream zis = new ZipInputStream(is)) {
+            ZipEntry entry;
+            while ((entry =zis.getNextEntry()) != null){
+                assertThat(entry.getName()).isEqualTo("12");
+            }
 
+        }
     }
 
 

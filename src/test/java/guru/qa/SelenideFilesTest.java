@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class SelenideFilesTest {
 
     @Test
-    void SelenideDownloadTest() throws Exception {
+    void selenideDownloadTest() throws Exception {
         // чтобы скачать файл должно быть написать href + ссылка в девтулсе.
         Selenide.open("https://github.com/junit-team/junit5/blob/main/README.md");
         File downloadedFile = Selenide.$("#raw-url").download(); //download + alt + ent = add signature это ок
